@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core publish and local tooling
+publish/
+**/wwwroot/lib/
+*.rsuser
+
+# Logs and temp files
+*.log
+*.tmp
+*.cache
