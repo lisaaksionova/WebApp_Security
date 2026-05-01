@@ -7,7 +7,21 @@ builder.Services.AddAuthentication("MyCookieAuth")
     .AddCookie("MyCookieAuth", opts =>
 {
     opts.Cookie.Name = "MyCookieAuth";
+    opts.LoginPath = "/Accounts/Login";
+    opts.AccessDeniedPath = "/Accounts/Default";
 });
+
+builder.Services.AddAuthorization(opts =>
+{
+    opts.AddPolicy("RequireAdminRole", 
+        policy => policy.RequireClaim("Admin"));
+    opts.AddPolicy("MustBelongToHR", policy => 
+        policy.RequireClaim("Department", "HR"));
+    opts.AddPolicy("HRManagerOnly", policy => policy
+        .RequireClaim("Department", "HR")
+        .RequireClaim("Manager"));
+});
+
 
 var app = builder.Build();
 

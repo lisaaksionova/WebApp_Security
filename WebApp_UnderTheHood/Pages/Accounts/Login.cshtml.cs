@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApp_UnderTheHood.Pages.Account;
+namespace WebApp_UnderTheHood.Pages.Accounts;
 
 public class Login : PageModel
 {
@@ -28,7 +28,10 @@ public class Login : PageModel
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, Credential.Username),
-                new Claim(ClaimTypes.Email, "admin@admin.com")
+                new Claim(ClaimTypes.Email, "admin@admin.com"),
+                new Claim("Department", "HR"),
+                new Claim("Admin", "true"),
+                new Claim("Manager", "true"),
             };
             var identity = new ClaimsIdentity(claims, "MyCookieAuth");
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
