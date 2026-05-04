@@ -7,3 +7,16 @@
 <div class="text-center">
     <h1 class="display-4">HR Manager</h1>
 </div>
+
+@if(Model.WeatherForecastItems is not null)
+
+{@foreach(var item in Model.WeatherForecastItems)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@item.Date.ToShortDateString()</h5>
+            <p class="card-text">Temperature: @item.TemperatureC °C / @item.TemperatureF °F</p>
+            <p class="card-text">Summary: @item.Summary</p>
+        </div>
+    </div>
+}}
