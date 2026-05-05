@@ -1,6 +1,17 @@
 @Web_API_HostAddress = http://localhost:5018
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzgwMDg1MjgsIm5iZiI6MTc3ODAwNzkyOCwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiYWRtaW5AYWRtaW4uY29tIiwiRGVwYXJ0bWVudCI6IkhSIiwiQWRtaW4iOiJ0cnVlIiwiTWFuYWdlciI6InRydWUiLCJFbXBsb3ltZW50RGF0ZSI6IjIwMjUtMDUtMDEiLCJpYXQiOjE3NzgwMDc5Mjh9.EyKnaex_8vf_saD5E4vEaWr4XSGdq5FMabJmFqMNQl4
 
 GET {{Web_API_HostAddress}}/weatherforecast/
 Accept: application/json
+Authorization: Bearer {{token}}
 
 ###
+
+POST {{Web_API_HostAddress}}/auth/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password"
+}
